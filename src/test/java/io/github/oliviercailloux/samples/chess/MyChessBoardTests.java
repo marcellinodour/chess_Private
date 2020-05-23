@@ -10,7 +10,7 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
 
-class MyChessBoardTests {
+class MyChessBoardTests {	
 	@Test
 	void testGetStringPiecesByPosition() throws Exception {
 		final MyChessBoard board = MyChessBoard.newInstance();
@@ -79,7 +79,12 @@ class MyChessBoardTests {
 	 */
 	@Test
 	void testMovePieces() throws Exception {
-//		final MyChessBoard board = MyChessBoard.newInstance();
+		final MyChessBoard board = MyChessBoard.newInstance();
+		board.movePiece("e1", "e2");
+		assertEquals(ImmutableMap.of("e2", "WK", "e8", "BK"), board.getStringPiecesByPosition());
+		
+		board.movePiece("e2", "e8");
+		assertEquals(ImmutableMap.of("e8", "WK"), board.getStringPiecesByPosition());
 
 	}
 
